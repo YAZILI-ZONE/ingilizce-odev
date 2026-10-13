@@ -64,6 +64,27 @@
             font-size: 0.95rem;
         }
 
+        /* Özel Selamlama Kutusu */
+        .teacher-greeting {
+            background: linear-gradient(135deg, #4f46e5 0%, #ec4899 100%);
+            color: white;
+            padding: 18px 24px;
+            border-radius: 14px;
+            text-align: center;
+            margin-bottom: 25px;
+            box-shadow: 0 6px 15px rgba(99, 102, 241, 0.2);
+        }
+
+        .teacher-greeting h2 {
+            font-size: 1.2rem;
+            margin-bottom: 4px;
+        }
+
+        .teacher-greeting p {
+            font-size: 0.9rem;
+            opacity: 0.95;
+        }
+
         /* Navigasyon Sekmeleri */
         .nav-tabs {
             display: flex;
@@ -76,10 +97,10 @@
         .nav-btn {
             background-color: white;
             border: 1px solid var(--border);
-            padding: 12px 20px;
+            padding: 12px 18px;
             border-radius: 12px;
             font-weight: 600;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             cursor: pointer;
             transition: all 0.25s ease;
             color: var(--text-muted);
@@ -112,7 +133,23 @@
             display: block;
         }
 
-        /* ÖZET BÖLÜMÜ (ŞIK VE KİBAR TASARIM) */
+        /* Görsel Alanı */
+        .media-banner {
+            width: 100%;
+            height: 220px;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            border: 1px solid var(--border);
+        }
+
+        .media-banner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* ÖZET BÖLÜMÜ */
         .summary-header {
             margin-bottom: 24px;
             padding-bottom: 12px;
@@ -166,7 +203,6 @@
             padding-left: 16px;
         }
 
-        /* Renkli Kişi Şeritleri */
         .p-1 { border-left-color: #6366f1; }
         .p-2 { border-left-color: #ec4899; }
         .p-3 { border-left-color: #f59e0b; }
@@ -186,7 +222,7 @@
             color: #64748b;
         }
 
-        /* RENKLİ SORU KARTLARI */
+        /* SORU KARTLARI */
         .question-card {
             margin-bottom: 24px;
             padding: 22px;
@@ -239,7 +275,36 @@
             color: #991b1b !important;
         }
 
-        /* Gizli Türkçe Açıklama Kutusu (Tıklayınca Açılır) */
+        /* Boşluk Doldurma Stil */
+        .fill-input {
+            padding: 10px 14px;
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            font-size: 0.95rem;
+            width: 200px;
+            margin-right: 10px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .fill-input:focus {
+            border-color: var(--primary);
+        }
+
+        .check-fill-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .check-fill-btn:hover {
+            background: var(--primary-dark);
+        }
+
         .tr-explanation {
             display: none;
             margin-top: 14px;
@@ -262,7 +327,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* EŞLEŞTİRME BÖLÜMÜ (CANLI RENKLER) */
+        /* EŞLEŞTİRME BÖLÜMÜ */
         .matching-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -323,16 +388,28 @@
         <p>9. Sınıf İngilizce Maarif Modeli - İnteraktif Sunum ve Soru Çalışması</p>
     </header>
 
-    <!-- Sekmeler -->
-    <div class="nav-tabs">
-        <button class="nav-btn active" onclick="switchTab('summary')">Video Özeti (6 Konuşmacı)</button>
-        <button class="nav-btn" onclick="switchTab('mcq')">Çoktan Seçmeli (5)</button>
-        <button class="nav-btn" onclick="switchTab('tf')">True / False (5)</button>
-        <button class="nav-btn" onclick="switchTab('matching')">Eşleştirme Modülü</button>
+    <!-- Hocaya Özel Selamlama Kutusu -->
+    <div class="teacher-greeting">
+        <h2>Kimya Yeşilbaş hocama selamlar, İngilizce hocam sizi seviyoruz! 💖</h2>
+        <p>Bu proje ekibimiz (Talha, Mustafa, Mehmet, Sefa, Ali, Emirhan) tarafından hazırlanmıştır.</p>
     </div>
 
-    <!-- 1. SEKME: 6 KİŞİLİK ZARİF ÖZET -->
+    <!-- Sekmeler -->
+    <div class="nav-tabs">
+        <button class="nav-btn active" onclick="switchTab('summary')">Video Özeti</button>
+        <button class="nav-btn" onclick="switchTab('mcq')">Çoktan Seçmeli (5)</button>
+        <button class="nav-btn" onclick="switchTab('tf')">True / False (5)</button>
+        <button class="nav-btn" onclick="switchTab('fill')">Boşluk Doldurma (5)</button>
+        <button class="nav-btn" onclick="switchTab('matching')">Eşleştirme</button>
+    </div>
+
+    <!-- 1. SEKME: ÖZET VE GÖRSEL -->
     <div id="summary" class="tab-content active">
+        <!-- TED-Ed Konsept Görseli -->
+        <div class="media-banner">
+            <img src="https://images.unsplash.com/photo-1507413245164-6160d8298b31?auto=format&fit=crop&w=1000&q=80" alt="Brain and Memory">
+        </div>
+
         <div class="summary-header">
             <h2>Group Presentation Summary</h2>
             <p style="font-size:0.85rem; color:var(--text-muted);">Tüm grup üyeleri videonun tamamına hâkimdir; her üyenin odak alanı aşağıda belirtilmiştir.</p>
@@ -411,23 +488,30 @@
         </div>
     </div>
 
-    <!-- 2. SEKME: ÇOKTAN SEÇMELİ (ANINDA AÇIKLAMA) -->
+    <!-- 2. SEKME: ÇOKTAN SEÇMELİ -->
     <div id="mcq" class="tab-content">
         <h2 style="margin-bottom:15px; color:var(--primary-dark);">Part A: Multiple Choice Questions</h2>
-        <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:20px;">Bir şıkka tıkladığınızda cevabınızın doğruluğu ve detaylı Türkçe açıklaması anında görünecektir.</p>
+        <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:20px;">Bir şıkka tıkladığınızda doğru cevap ve Türkçe açıklaması görünecektir.</p>
         <div id="mcq-box"></div>
     </div>
 
-    <!-- 3. SEKME: TRUE / FALSE (ANINDA AÇIKLAMA) -->
+    <!-- 3. SEKME: TRUE / FALSE -->
     <div id="tf" class="tab-content">
         <h2 style="margin-bottom:15px; color:var(--primary-dark);">Part B: True or False Questions</h2>
-        <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:20px;">Doğru veya Yanlış butonuna tıkladığınızda çözüm açıklaması belirir.</p>
+        <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:20px;">True veya False butonuna tıklayarak anında geri bildirim alabilirsiniz.</p>
         <div id="tf-box"></div>
     </div>
 
-    <!-- 4. SEKME: EŞLEŞTİRME -->
+    <!-- 4. SEKME: BOŞLUK DOLDURMA (YENİ EKLENDİ) -->
+    <div id="fill" class="tab-content">
+        <h2 style="margin-bottom:15px; color:var(--primary-dark);">Part C: Fill in the Blanks</h2>
+        <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:20px;">Cümlelerdeki boşlukları uygun kelimeyle doldurup kontrol ediniz. (İngilizce kelime yazınız).</p>
+        <div id="fill-box"></div>
+    </div>
+
+    <!-- 5. SEKME: EŞLEŞTİRME -->
     <div id="matching" class="tab-content">
-        <h2 style="margin-bottom:10px; color:var(--primary-dark);">Part C: Interactive Matching Exercise</h2>
+        <h2 style="margin-bottom:10px; color:var(--primary-dark);">Part D: Interactive Matching Exercise</h2>
         <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:20px;">Soldaki terime tıklayıp sağdaki doğru İngilizce karşılığı ile eşleştiriniz.</p>
         
         <div class="matching-container">
@@ -440,7 +524,6 @@
 </div>
 
 <script>
-    // Sekmeler Arası Geçiş
     function switchTab(tabId) {
         document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
         document.querySelectorAll('.nav-btn').forEach(el => el.classList.remove('active'));
@@ -459,13 +542,13 @@
                 "A condition where you forget grammar rules"
             ],
             ans: 1,
-            tr: "💡 **Türkçe Çözüm:** Video anlatımına göre 'tip-of-the-tongue' (dilimin ucunda) kelimeyi zihninizde hissettiğiniz ancak o an hatırlayamadığınız sinir bozucu durumdur. Doğru cevap **B** şıkkıdır."
+            tr: "💡 **Türkçe Çözüm:** Video anlatımına göre 'tip-of-the-tongue' kelimeyi bildiğiniz halde o an hatırlayamadığınız durumdur. Doğru cevap **B** şıkkıdır."
         },
         {
             q: "2. Which layer of word retrieval is considered most vulnerable to glitches?",
             options: ["Meaning layer", "Visual layer", "Sound layer", "Spelling layer"],
             ans: 2,
-            tr: "💡 **Türkçe Çözüm:** Dilbilimcilere göre kelimenin telaffuzu ve işitilmesiyle ilgili olan **Ses (Sound)** katmanı aksamalara en açık bölümdür. Doğru cevap **C** şıkkıdır."
+            tr: "💡 **Türkçe Çözüm:** Dilbilimcilere göre kelimenin telaffuzuyla ilgili olan **Ses (Sound)** katmanı aksamalara en açıktır. Doğru cevap **C** şıkkıdır."
         },
         {
             q: "3. Which type of words are most likely to cause this state?",
@@ -476,7 +559,7 @@
                 "Simple action words"
             ],
             ans: 1,
-            tr: "💡 **Türkçe Çözüm:** İnsan isimleri gibi **özel isimler (proper nouns)** ve soyut kelimeler en çok hatırlama güçlüğü yaratır. Doğru cevap **B** şıkkıdır."
+            tr: "💡 **Türkçe Çözüm:** Özel isimler ve soyut kelimeler en çok hataya sebep olur. Doğru cevap **B** şıkkıdır."
         },
         {
             q: "4. Why do multilingual people experience this state more frequently?",
@@ -487,7 +570,7 @@
                 "Because their brains process information slower"
             ],
             ans: 1,
-            tr: "💡 **Türkçe Çözüm:** Birden fazla dil bilenlerde, diğer dildeki kelimeler hedef kelimenin önüne geçerek **engelleyici (blocker)** rol oynar. Doğru cevap **B** şıkkıdır."
+            tr: "💡 **Türkçe Çözüm:** Birden fazla dildeki kelimeler araya girerek engelleyici (blocker) rol oynar. Doğru cevap **B** şıkkıdır."
         },
         {
             q: "5. What is the main purpose of 'cueing'?",
@@ -498,7 +581,7 @@
                 "To learn a second language faster"
             ],
             ans: 2,
-            tr: "💡 **Türkçe Çözüm:** **Cueing (İpucu Kullanma)**, alfabeyi saymak veya çağrışımları kullanmak gibi yöntemlerle kelimeyi hafızadan çıkarmayı sağlar. Doğru cevap **C** şıkkıdır."
+            tr: "💡 **Türkçe Çözüm:** İpucu kullanmak (cueing) çağrışım yaparak kelimeyi hatırlamamıza yardımcı olur. Doğru cevap **C** şıkkıdır."
         }
     ];
 
@@ -507,27 +590,56 @@
         {
             q: "1. Stressful environments, like taking tests, increase tip-of-the-tongue occurrences.",
             ans: true,
-            tr: "💡 **Türkçe Çözüm:** **Doğru (True).** Sınav stresi gibi dış etkenler hatırlama yollarını zorlaştırır."
+            tr: "💡 **Türkçe Çözüm:** **Doğru (True).** Sınav stresi hatırlama zorluklarını artırır."
         },
         {
             q: "2. Tip-of-the-tongue experiences decrease as a person gets older.",
             ans: false,
-            tr: "💡 **Türkçe Çözüm:** **Yanlış (False).** Yaş ilerledikçe bilgi birikimi arttığı için bu durum daha sık görülür."
+            tr: "💡 **Türkçe Çözüm:** **Yanlış (False).** Yaşlandıkça birikim arttığı için bu durum sıklaşır."
         },
         {
             q: "3. The anterior cingulate region in the brain generates the frustrating feeling during recall failures.",
             ans: true,
-            tr: "💡 **Türkçe Çözüm:** **Doğru (True).** Çatışma tespit eden ön singulat bölgesi bu hissi üretir."
+            tr: "💡 **Türkçe Çözüm:** **Doğru (True).** Ön singulat bölgesi bu sinir bozucu hissi üretir."
         },
         {
             q: "4. A tip-of-the-tongue moment means the word is permanently deleted from your memory.",
             ans: false,
-            tr: "💡 **Türkçe Çözüm:** **Yanlış (False).** Kelime silinmemiştir, sadece o an erişimi zorlaşmıştır."
+            tr: "💡 **Türkçe Çözüm:** **Yanlış (False).** Kelime silinmez, geçici olarak erişilemez."
         },
         {
             q: "5. Running through the alphabet can help trigger the recall of a stuck word.",
             ans: true,
-            tr: "💡 **Türkçe Çözüm:** **Doğru (True).** Harfleri zihinde taramak ipucu yakalamayı kolaylaştırır."
+            tr: "💡 **Türkçe Çözüm:** **Doğru (True).** Alfabeyi taramak harf ipucu yakalamayı sağlar."
+        }
+    ];
+
+    // Boşluk Doldurma Verisi (Yeni)
+    const fillData = [
+        {
+            q: "1. The brain region that detects conflict and generates a frustrating feeling is called the anterior _________.",
+            answer: "cingulate",
+            tr: "💡 **Açıklama:** Boşluğa gelmesi gereken kelime **cingulate** (Ön singulat bölgesi) olmalıdır."
+        },
+        {
+            q: "2. Researchers call the frustrating memory block the tip-of-the-_________ state.",
+            answer: "tongue",
+            tr: "💡 **Açıklama:** Doğru kelime **tongue** (Dilimin ucunda) kelimesidir."
+        },
+        {
+            q: "3. Using associated clues, memories, or letters to find a word is known as _________.",
+            answer: "cueing",
+            tr: "💡 **Açıklama:** İpucu verme yöntemi **cueing** olarak adlandırılır."
+        },
+        {
+            q: "4. Unintended words in multilingual people can act as _________ or red herrings.",
+            answer: "blockers",
+            tr: "💡 **Açıklama:** Araya giren engelleyici kelimeler **blocker** olarak ifade edilir."
+        },
+        {
+            q: "5. Tip-of-the-tongue states happen most frequently with proper _________ and abstract words.",
+            answer: "nouns",
+            tr: "💡 **Açıklama:** Özel isimler İngilizcede **proper nouns** olarak geçer."
         }
     ];
 
@@ -543,23 +655,18 @@
     window.onload = function() {
         renderMCQ();
         renderTF();
+        renderFill();
         renderMatching();
     };
 
-    // MCQ Yükleme ve Tek Tek Tıklama
     function renderMCQ() {
         const box = document.getElementById('mcq-box');
         mcqData.forEach((item, qIdx) => {
-            let html = `
-                <div class="question-card" id="mcq-card-${qIdx}">
-                    <h3>${item.q}</h3>
-                    <div class="options-grid">`;
+            let html = `<div class="question-card" id="mcq-card-${qIdx}"><h3>${item.q}</h3><div class="options-grid">`;
             item.options.forEach((opt, oIdx) => {
                 html += `<button class="opt-btn" onclick="checkMCQ(${qIdx}, ${oIdx})">${opt}</button>`;
             });
-            html += `</div>
-                    <div class="tr-explanation" id="mcq-tr-${qIdx}">${item.tr}</div>
-                </div>`;
+            html += `</div><div class="tr-explanation" id="mcq-tr-${qIdx}">${item.tr}</div></div>`;
             box.innerHTML += html;
         });
     }
@@ -568,10 +675,7 @@
         const card = document.getElementById(`mcq-card-${qIdx}`);
         const buttons = card.querySelectorAll('.opt-btn');
         const trBox = document.getElementById(`mcq-tr-${qIdx}`);
-
-        // Tekrar tıklamayı engelle
         buttons.forEach(b => b.disabled = true);
-
         const correctOpt = mcqData[qIdx].ans;
         if (selectedOpt === correctOpt) {
             buttons[selectedOpt].classList.add('correct');
@@ -579,15 +683,13 @@
             buttons[selectedOpt].classList.add('incorrect');
             buttons[correctOpt].classList.add('correct');
         }
-
         trBox.classList.add('visible');
     }
 
-    // T/F Yükleme ve Tek Tek Tıklama
     function renderTF() {
         const box = document.getElementById('tf-box');
         tfData.forEach((item, qIdx) => {
-            let html = `
+            box.innerHTML += `
                 <div class="question-card" id="tf-card-${qIdx}">
                     <h3>${item.q}</h3>
                     <div class="options-grid" style="grid-template-columns: 1fr 1fr;">
@@ -596,7 +698,6 @@
                     </div>
                     <div class="tr-explanation" id="tf-tr-${qIdx}">${item.tr}</div>
                 </div>`;
-            box.innerHTML += html;
         });
     }
 
@@ -604,31 +705,60 @@
         const card = document.getElementById(`tf-card-${qIdx}`);
         const buttons = card.querySelectorAll('.opt-btn');
         const trBox = document.getElementById(`tf-tr-${qIdx}`);
-
         buttons.forEach(b => b.disabled = true);
-
         const correctChoice = tfData[qIdx].ans;
         const btnIndex = userChoice === true ? 0 : 1;
         const correctIndex = correctChoice === true ? 0 : 1;
-
         if (userChoice === correctChoice) {
             buttons[btnIndex].classList.add('correct');
         } else {
             buttons[btnIndex].classList.add('incorrect');
             buttons[correctIndex].classList.add('correct');
         }
-
         trBox.classList.add('visible');
     }
 
-    // Eşleştirme Sistemi
+    // Boşluk Doldurma Render ve Kontrolü (Yeni)
+    function renderFill() {
+        const box = document.getElementById('fill-box');
+        fillData.forEach((item, qIdx) => {
+            box.innerHTML += `
+                <div class="question-card" id="fill-card-${qIdx}">
+                    <h3>${item.q}</h3>
+                    <div style="display: flex; align-items: center; flex-wrap: wrap; gap: 10px;">
+                        <input type="text" class="fill-input" id="fill-input-${qIdx}" placeholder="Cevabınızı yazın...">
+                        <button class="check-fill-btn" onclick="checkFill(${qIdx})">Kontrol Et</button>
+                    </div>
+                    <div class="tr-explanation" id="fill-tr-${qIdx}">${item.tr}</div>
+                </div>`;
+        });
+    }
+
+    function checkFill(qIdx) {
+        const input = document.getElementById(`fill-input-${qIdx}`);
+        const trBox = document.getElementById(`fill-tr-${qIdx}`);
+        const userVal = input.value.trim().toLowerCase();
+        const correctVal = fillData[qIdx].answer.toLowerCase();
+
+        input.disabled = true;
+        if (userVal === correctVal) {
+            input.style.borderColor = "var(--success)";
+            input.style.background = "#ecfdf5";
+            input.style.color = "#065f46";
+        } else {
+            input.style.borderColor = "var(--error)";
+            input.style.background = "#fef2f2";
+            input.style.color = "#991b1b";
+        }
+        trBox.classList.add('visible');
+    }
+
     let activeTerm = null;
     let matchCount = 0;
 
     function renderMatching() {
         const termsCol = document.getElementById('terms-col');
         const defsCol = document.getElementById('defs-col');
-
         let shuffledTerms = [...matchPairs].sort(() => Math.random() - 0.5);
         let shuffledDefs = [...matchPairs].sort(() => Math.random() - 0.5);
 
@@ -650,7 +780,6 @@
 
     function handleDefClick(el) {
         if (el.classList.contains('matched') || !activeTerm) return;
-
         let termId = activeTerm.getAttribute('data-id');
         let defId = el.getAttribute('data-id');
 
@@ -660,7 +789,6 @@
             el.classList.add('matched');
             activeTerm = null;
             matchCount++;
-
             if (matchCount === matchPairs.length) {
                 document.getElementById('match-status').innerText = "🎉 Tebrikler! Tüm eşleştirmeleri başarıyla tamamladınız.";
             }
