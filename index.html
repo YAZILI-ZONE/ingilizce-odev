@@ -136,7 +136,7 @@
             display: block;
         }
 
-        /* Güzelleştirilmiş Görsel Alanı (Grid) */
+        /* Görsel Galerisi */
         .image-gallery {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -163,7 +163,7 @@
             object-fit: cover;
         }
 
-        /* Karşılama / Bilgi Kutusu */
+        /* Karşılama Kartı */
         .welcome-card {
             background: #f8fafc;
             border: 1px solid var(--border);
@@ -184,7 +184,7 @@
             font-size: 0.95rem;
         }
 
-        /* En Alttaki Ekip Üyeleri Kartı */
+        /* Ekip Üyeleri Kartı */
         .team-footer-box {
             background: linear-gradient(135deg, #eef2ff 0%, #fdf2f8 100%);
             border: 1.5px dashed var(--primary);
@@ -219,7 +219,7 @@
             box-shadow: 0 2px 4px rgba(0,0,0,0.02);
         }
 
-        /* SORU KARTLARI */
+        /* Soru Kartları */
         .question-card {
             margin-bottom: 24px;
             padding: 22px;
@@ -324,7 +324,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* EŞLEŞTİRME BÖLÜMÜ */
+        /* Eşleştirme Bölümü */
         .matching-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -380,7 +380,7 @@
 <body>
 
 <div class="container">
-    <!-- En Başta Yer Alan İngilizce Öğretmen Notu -->
+    <!-- Öğretmen Notu -->
     <div class="top-teacher-banner">
         <h2>With love to our Chemistry Teacher, Kimya Yeşilbaş! 🧪✨</h2>
         <p>Dear English Teacher, we love you so much! ❤️ | TED-Ed: Tip-of-the-Tongue State Project</p>
@@ -400,15 +400,14 @@
         <button class="nav-btn" onclick="switchTab('matching')">Eşleştirme</button>
     </div>
 
-    <!-- 1. SEKME: GÜZELLEŞTİRİLMİŞ GÖRSELLER VE ANASAYFA -->
+    <!-- 1. SEKME: ANASAYFA -->
     <div id="summary" class="tab-content active">
-        <!-- Şık Görsel Galerisi -->
         <div class="image-gallery">
             <div class="gallery-img-container">
-                <img src="https://images.unsplash.com/photo-1559757175-5700dde675bc?auto=format&fit=crop&w=800&q=80" alt="Brain and Neural Connections">
+                <img src="https://images.unsplash.com/photo-1559757175-5700dde675bc?auto=format&fit=crop&w=800&q=80" alt="Brain">
             </div>
             <div class="gallery-img-container">
-                <img src="https://images.unsplash.com/photo-1507413245164-6160d8298b31?auto=format&fit=crop&w=800&q=80" alt="Mind and Memory">
+                <img src="https://images.unsplash.com/photo-1507413245164-6160d8298b31?auto=format&fit=crop&w=800&q=80" alt="Memory">
             </div>
         </div>
 
@@ -417,7 +416,6 @@
             <p>This platform is designed to explore how our brain handles word retrieval failures, known as the <strong>"tip-of-the-tongue"</strong> state. You can test your knowledge using the interactive sections above!</p>
         </div>
 
-        <!-- Proje Ekibi Bilgisi -->
         <div class="team-footer-box">
             <h3>Project Creators & Team Members</h3>
             <div class="team-members-list">
@@ -431,7 +429,7 @@
         </div>
     </div>
 
-    <!-- 2. SEKME: ÇOKTAN SEÇMELİ -->
+    <!-- 2. SEKME: MCQ -->
     <div id="mcq" class="tab-content">
         <h2 style="margin-bottom:15px; color:var(--primary-dark);">Part A: Multiple Choice Questions</h2>
         <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:20px;">Bir şıkka tıkladığınızda doğru cevap ve Türkçe açıklaması görünecektir.</p>
@@ -456,12 +454,10 @@
     <div id="matching" class="tab-content">
         <h2 style="margin-bottom:10px; color:var(--primary-dark);">Part D: Interactive Matching Exercise</h2>
         <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:20px;">Soldaki terime tıklayıp sağdaki doğru İngilizce karşılığı ile eşleştiriniz.</p>
-        
         <div class="matching-container">
             <div class="match-column" id="terms-col"></div>
             <div class="match-column" id="defs-col"></div>
         </div>
-
         <div id="match-status" class="status-msg"></div>
     </div>
 </div>
@@ -474,7 +470,6 @@
         event.currentTarget.classList.add('active');
     }
 
-    // MCQ Verisi
     const mcqData = [
         {
             q: "1. What is the 'tip-of-the-tongue' state according to the video?",
@@ -528,7 +523,6 @@
         }
     ];
 
-    // T/F Verisi
     const tfData = [
         {
             q: "1. Stressful environments, like taking tests, increase tip-of-the-tongue occurrences.",
@@ -557,7 +551,6 @@
         }
     ];
 
-    // Boşluk Doldurma Verisi
     const fillData = [
         {
             q: "1. The brain region that detects conflict and generates a frustrating feeling is called the anterior _________.",
@@ -586,7 +579,6 @@
         }
     ];
 
-    // Eşleştirme Verisi
     const matchPairs = [
         { id: 1, term: "Tip-of-the-tongue state", def: "The sensation of knowing a word without recalling its sound" },
         { id: 2, term: "Anterior cingulate", def: "Brain area detecting conflict and creating frustrating feelings" },
